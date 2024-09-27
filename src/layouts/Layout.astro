@@ -1,14 +1,26 @@
-<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Meezingen of ons boeken?" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/favicon.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Partiburen - Hedendaags koor in Gent</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="De Partiburen is een ouder- en buurtkoor van De Wijze Boom aan de Rozenbroeken in Gent. Meezingen?" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/favicon.jpeg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Partiburen - Koor in Gent</title>
+  </head>
+  <body class="flex flex-col justify-stretch items-center bg-neutral-200">
+    <main class="max-w-3xl h-[100vh] bg-white">
+      <slot />
+    </main>
+  </body>
 </html>
+<style is:global>
+  h1,
+  h2 {
+    font-family: "Paytone One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+</style>
