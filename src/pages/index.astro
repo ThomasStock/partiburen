@@ -3,21 +3,32 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <header class="w-full max-h-[40vh] relative">
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center drop-shadow-lg">
-      <h1 class="sm:text-6xl text-4xl leading-snug">Partiburen</h1>
-      <h2 class="sm:text-lg text-neutral-50 text-sm">Buurtkoor in Gent</h2>
+  <header class="w-full relative overflow-hidden">
+    <div class="absolute inset-0 top-8 sm:top-24 bottom-auto flex flex-col justify-center text-white text-center drop-shadow-lg">
+      <div class="">
+        <h1 class="sm:text-6xl text-5xl leading-snug">Partiburen</h1>
+        <h2 class="sm:text-lg text-neutral-50 text-sm">Buurtkoor in Gent</h2>
+      </div>
     </div>
     <img src="/header.jpg" alt="Partiburen op de Gentse Feesten 2024" class="w-full" />
   </header>
-  <div class="p-4 flex flex-col justify-center items-center">
-    <a href="https://www.instagram.com/de_partiburen" target="_blank"
+  <div class="p-4 flex flex-row gap-4 justify-center items-center">
+    <a href="https://www.instagram.com/de_partiburen" target="_blank" class="shrink-0"
       ><img
         src="/instagram.png"
         alt="https://www.instagram.com/de_partiburen?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
         class="size-12"
       /></a
     >
+    <iframe
+      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100085963819719&tabs&width=340&height=70&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId=473116264652745"
+      width="340"
+      height="70"
+      style="border:none;overflow:hidden"
+      scrolling="no"
+      frameborder="0"
+      allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
   </div>
   <main>
     <div class="p-4">
@@ -36,15 +47,27 @@ import Layout from "../layouts/Layout.astro";
       </p>
     </div>
     <div class="p-4 flex flex-col">
+      <img src="/join.jpg" alt="Gezellig in het park" class="my-4 mb-8 self-center" />
       <h1 class="text-3xl leading-relaxed mb-2">Meezingen?</h1>
       <p>
         Iedereen is welkom: je moet geen noten kunnen lezen. We zingen doorgaans muziek die de laatste 25 jaar te horen was op Radio 1 of op
         Studio Brussel, ondersteund door de cajon, wat kleine percussie en Pierre op gitaar. Voor klassieke popnummers zijn de strofes vaak
         1-stemmig en de refreinen 2- of 3-stemmig.
       </p>
-      <p class="mt-2">todo: link naar gsm</p>
-
-      <img src="/join.jpg" alt="Gezellig in het park" class="px-16 mt-4 self-center" />
+      <p class="mt-2">Voor meer informatie: <a href="tel:32497401843">0497 40 18 43</a></p>
+    </div>
+    <div class="p-8">
+      <iframe
+        style="border-radius:12px p-4"
+        src="https://open.spotify.com/embed/playlist/5cTvDz05adEOop9zYRiyBx?utm_source=generator&theme=0"
+        width="100%"
+        height="352"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </div>
+    <div class="flex justify-center text-neutral-600 p-8">
+      Lid van&nbsp;<a class="underline" href="https://www.koorenstem.be/nl">Koor&Stem vzw</a>
     </div>
   </main>
 </Layout>
