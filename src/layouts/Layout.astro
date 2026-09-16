@@ -1,14 +1,17 @@
-<html lang="en">
+---
+import content from "../data/home.json";
+---
+<html lang="nl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="De Partiburen is een ouder- en buurtkoor van De Wijze Boom aan de Rozenbroeken in Gent. Meezingen?" />
+    <meta name="description" content={content.seo.description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet" />
     <link rel="icon" href="/favicon.jpeg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Partiburen - Koor in Gent</title>
+    <title>{content.seo.title}</title>
   </head>
   <body class="flex flex-col justify-stretch items-center bg-neutral-200 overflow-scroll">
     <main class="max-w-3xl bg-white">

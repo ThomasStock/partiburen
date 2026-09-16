@@ -1,0 +1,163 @@
+media:
+  input: public
+  output: /
+  categories:
+    - image
+content:
+  - name: home
+    label: Homepage
+    type: file
+    path: src/data/home.json
+    format: json
+    fields:
+      - name: seo
+        label: Zoekmachines
+        type: object
+        fields:
+          - name: title
+            label: Paginatitel
+            type: string
+            required: true
+          - name: description
+            label: Omschrijving
+            type: text
+            required: true
+      - name: hero
+        label: Bovenaan
+        type: object
+        fields:
+          - name: title
+            label: Naam
+            type: string
+            required: true
+          - name: subtitle
+            label: Ondertitel
+            type: string
+            required: true
+          - name: image
+            label: Hoofdfoto
+            type: image
+            required: true
+          - name: imageAlt
+            label: Beschrijving hoofdfoto
+            type: string
+            required: true
+          - name: badge
+            label: Badge
+            type: image
+            required: true
+          - name: badgeAlt
+            label: Beschrijving badge
+            type: string
+            required: true
+      - name: about
+        label: Wie zijn we?
+        type: object
+        fields:
+          - name: title
+            label: Titel
+            type: string
+            required: true
+          - name: intro
+            label: Introductie
+            type: rich-text
+            required: true
+            options:
+              format: html
+              media: false
+          - name: conductors
+            label: Gastdirigenten
+            type: rich-text
+            required: true
+            options:
+              format: html
+              media: false
+          - name: moreLabel
+            label: Tekst lees-meer-link
+            type: string
+            required: true
+          - name: moreUrl
+            label: Lees-meer-link
+            type: string
+            required: true
+      - name: join
+        label: Meezingen
+        type: object
+        fields:
+          - name: title
+            label: Titel
+            type: string
+            required: true
+          - name: body
+            label: Tekst
+            type: rich-text
+            required: true
+            options:
+              format: html
+              media: false
+          - name: contactLabel
+            label: Contacttekst
+            type: string
+            required: true
+          - name: phoneLabel
+            label: Telefoonnummer (weergave)
+            type: string
+            required: true
+          - name: phone
+            label: Telefoonnummer (alleen cijfers, met landcode)
+            type: string
+            required: true
+          - name: image
+            label: Foto
+            type: image
+            required: true
+          - name: imageAlt
+            label: Beschrijving foto
+            type: string
+            required: true
+      - name: social
+        label: Sociale media
+        type: object
+        fields:
+          - name: instagram
+            label: Instagram-profiel
+            type: string
+            required: true
+          - name: facebook
+            label: Facebook-profiel
+            type: string
+            required: true
+          - name: youtubeEmbed
+            label: YouTube embed-URL
+            type: string
+            required: true
+            description: Gebruik de insluit-URL (embed), niet de gewone deel-link.
+          - name: spotifyEmbed
+            label: Spotify embed-URL
+            type: string
+            required: true
+            description: Gebruik de insluit-URL (embed), niet de gewone deel-link.
+          - name: instagramPost
+            label: Instagram-bericht URL
+            type: string
+            required: true
+          - name: instagramCaption
+            label: Instagram-bijschrift
+            type: string
+            required: true
+      - name: footer
+        label: Onderaan
+        type: object
+        fields:
+          - name: label
+            label: Tekst
+            type: string
+            required: true
+          - name: linkLabel
+            label: Linktekst
+            type: string
+            required: true
+          - name: url
+            label: Link
+            type: string
+            required: true

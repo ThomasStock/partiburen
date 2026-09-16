@@ -1,66 +1,56 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import content from "../data/home.json";
 ---
 
 <Layout>
   <header class="w-full relative overflow-hidden">
     <div class="absolute inset-0 top-8 sm:top-24 bottom-auto flex flex-col justify-center text-white text-center drop-shadow-lg">
       <div class="">
-        <h1 class="sm:text-6xl text-5xl leading-snug">Partiburen</h1>
-        <h2 class="sm:text-lg text-neutral-50 text-sm">Buurtkoor in Gent</h2>
+        <h1 class="sm:text-6xl text-5xl leading-snug">{content.hero.title}</h1>
+        <h2 class="sm:text-lg text-neutral-50 text-sm">{content.hero.subtitle}</h2>
       </div>
     </div>
-    <img src="/header.jpg" alt="Partiburen op de Gentse Feesten 2024" class="w-full" />
-    <img src="/halve-finalisten-gentse-feesten.png" alt="Halve finalisten Gentse Feesten" class="absolute md:bottom-4 md:right-4 bottom-1 right-1 w-24 md:w-32 h-auto" />
+    <img src={content.hero.image} alt={content.hero.imageAlt} class="w-full" />
+    <img src={content.hero.badge} alt={content.hero.badgeAlt} class="absolute md:bottom-4 md:right-4 bottom-1 right-1 w-24 md:w-32 h-auto" />
   </header>
   <div class="p-4 mt-6 flex flex-row gap-12 justify-center items-center">
-    <a href="https://www.instagram.com/de_partiburen" target="_blank" class="shrink-0"
+    <a href={content.social.instagram} target="_blank" class="shrink-0"
       ><img
         src="/instagram.png"
-        alt="https://www.instagram.com/de_partiburen?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        alt="Instagram"
         class="size-12"
       /></a
     >
-    <a href="https://www.facebook.com/profile.php?id=100085963819719" target="_blank" class="shrink-0"
-      ><img src="/facebook.png" alt="https://www.facebook.com/profile.php?id=100085963819719" class="size-12" /></a
+    <a href={content.social.facebook} target="_blank" class="shrink-0"
+      ><img src="/facebook.png" alt="Facebook" class="size-12" /></a
     >
   </div>
   <main>
     <div class="p-4">
-      <h1 class="text-3xl leading-relaxed mb-2">Wie zijn we?</h1>
-      <p>
-        De Partiburen is een ouder- en buurtkoor van De Wijze Boom aan de Rozenbroeken. We repeteren <b
-          >elke donderdagavond van 20u tot 22u</b
-        > in de leraarskamer van de school. Bij mooi weer zingen we wel eens buiten in het park.
-      </p>
+      <h1 class="text-3xl leading-relaxed mb-2">{content.about.title}</h1>
+      <div class="cms-copy" set:html={content.about.intro} />
+      <div class="cms-copy mt-2" set:html={content.about.conductors} />
       <p class="mt-2">
-        We werken geregeld met gastdirigenten, die zich telkens voor enkele maanden engageren. Zo kwam <b>Wim Claeys</b> zijn eigen Gentse volksrepertoire
-        met ons inoefenen, deed <b>Peter Boone</b> met ons muziek uit de sixties en seventies en bracht <b>Aike Roodenburg</b> van Papillon wereldmuziek mee.
-      </p>
-      <p class="mt-2">
-        <a target="_blank" href="https://www.koorenstem.be/nl/artikel/zingen-in-de-buurt" class="underline">Lees meer</a>
+        <a target="_blank" href={content.about.moreUrl} class="underline">{content.about.moreLabel}</a>
       </p>
     </div>
     <div class="p-4 flex flex-col">
       <div class="flex flex-col sm:items-stretch sm:flex-row gap-12 sm:gap-4">
-        <iframe width="100%" class="aspect-video" src="https://www.youtube.com/embed/TwZbkf8TZT0?si=LaM6NQPBeap1W9rf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="100%" class="aspect-video" src={content.social.youtubeEmbed} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
       
-      <h1 class="text-3xl leading-relaxed mb-2 mt-8">Meezingen?</h1>
-      <p>
-        Iedereen is welkom: je moet geen noten kunnen lezen. We zingen doorgaans muziek die de laatste 25 jaar te horen was op Radio 1 of op
-        Studio Brussel, ondersteund door de cajon, wat kleine percussie en Pierre op gitaar. Voor klassieke popnummers zijn de strofes vaak
-        1-stemmig en de refreinen 2- of 3-stemmig.
-      </p>
-      <p class="mt-2">Voor meer informatie: <a href="tel:32497401843">0497 40 18 43</a></p>
+      <h1 class="text-3xl leading-relaxed mb-2 mt-8">{content.join.title}</h1>
+      <div class="cms-copy" set:html={content.join.body} />
+      <p class="mt-2">{content.join.contactLabel} <a href={`tel:${content.join.phone}`}>{content.join.phoneLabel}</a></p>
     </div>
-    <img src="/join.jpg" alt="Gezellig in het park" class="my-4 mb-8 self-center" />
+    <img src={content.join.image} alt={content.join.imageAlt} class="my-4 mb-8 self-center" />
 
     <div class="p-4 flex flex-col sm:items-stretch sm:flex-row gap-12 sm:gap-4">
       <iframe
         style="border-radius:12px"
         class="h-[352px] sm:h-auto"
-        src="https://open.spotify.com/embed/playlist/5cTvDz05adEOop9zYRiyBx?utm_source=generator&theme=0"
+        src={content.social.spotifyEmbed}
         width="100%"
         allowfullscreen=""
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -69,13 +59,13 @@ import Layout from "../layouts/Layout.astro";
       <blockquote
         class="instagram-media"
         data-instgrm-captioned
-        data-instgrm-permalink="https://www.instagram.com/reel/DA53SjDI1sa/?utm_source=ig_embed&utm_campaign=loading"
+        data-instgrm-permalink={content.social.instagramPost}
         data-instgrm-version="14"
         style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:600px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"
       >
         <div style="padding:16px;">
           <a
-            href="https://www.instagram.com/reel/DA53SjDI1sa/?utm_source=ig_embed&utm_campaign=loading"
+            href={content.social.instagramPost}
             style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
             target="_blank"
           >
@@ -152,9 +142,9 @@ import Layout from "../layouts/Layout.astro";
             style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"
           >
             <a
-              href="https://www.instagram.com/reel/DA53SjDI1sa/?utm_source=ig_embed&utm_campaign=loading"
+              href={content.social.instagramPost}
               style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
-              target="_blank">Een bericht gedeeld door Buurtkoor De Partiburen (@de_partiburen)</a
+              target="_blank">{content.social.instagramCaption}</a
             >
           </p>
 
@@ -166,7 +156,14 @@ import Layout from "../layouts/Layout.astro";
 
 
     <div class="flex justify-center text-neutral-600 p-4 pb-8">
-      Lid van&nbsp;<a class="underline" href="https://www.koorenstem.be/nl">Koor&Stem vzw</a>
+      {content.footer.label}&nbsp;<a class="underline" href={content.footer.url}>{content.footer.linkLabel}</a>
     </div>
   </main>
 </Layout>
+
+<style is:global>
+  .cms-copy p + p { margin-top: 0.5rem; }
+  .cms-copy a { text-decoration: underline; }
+  .cms-copy ul { list-style: disc; padding-left: 1.5rem; }
+  .cms-copy ol { list-style: decimal; padding-left: 1.5rem; }
+</style>

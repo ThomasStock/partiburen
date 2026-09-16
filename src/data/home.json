@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Partiburen - Koor in Gent",
+    "description": "De Partiburen is een ouder- en buurtkoor van De Wijze Boom aan de Rozenbroeken in Gent. Meezingen?"
+  },
+  "hero": {
+    "title": "Partiburen",
+    "subtitle": "Buurtkoor in Gent",
+    "image": "/header.jpg",
+    "imageAlt": "Partiburen op de Gentse Feesten 2024",
+    "badge": "/halve-finalisten-gentse-feesten.png",
+    "badgeAlt": "Halve finalisten Gentse Feesten"
+  },
+  "about": {
+    "title": "Wie zijn we?",
+    "intro": "<p>De Partiburen is een ouder- en buurtkoor van De Wijze Boom aan de Rozenbroeken. We repeteren <b>elke donderdagavond van 20u tot 22u</b> in de leraarskamer van de school. Bij mooi weer zingen we wel eens buiten in het park.</p>",
+    "conductors": "<p>We werken geregeld met gastdirigenten, die zich telkens voor enkele maanden engageren. Zo kwam <b>Wim Claeys</b> zijn eigen Gentse volksrepertoire met ons inoefenen, deed <b>Peter Boone</b> met ons muziek uit de sixties en seventies en bracht <b>Aike Roodenburg</b> van Papillon wereldmuziek mee.</p>",
+    "moreLabel": "Lees meer",
+    "moreUrl": "https://www.koorenstem.be/nl/artikel/zingen-in-de-buurt"
+  },
+  "join": {
+    "title": "Meezingen?",
+    "body": "<p>Iedereen is welkom: je moet geen noten kunnen lezen. We zingen doorgaans muziek die de laatste 25 jaar te horen was op Radio 1 of op Studio Brussel, ondersteund door de cajon, wat kleine percussie en Pierre op gitaar. Voor klassieke popnummers zijn de strofes vaak 1-stemmig en de refreinen 2- of 3-stemmig.</p>",
+    "contactLabel": "Voor meer informatie:",
+    "phoneLabel": "0497 40 18 43",
+    "phone": "32497401843",
+    "image": "/join.jpg",
+    "imageAlt": "Gezellig in het park"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/de_partiburen",
+    "facebook": "https://www.facebook.com/profile.php?id=100085963819719",
+    "youtubeEmbed": "https://www.youtube.com/embed/TwZbkf8TZT0?si=LaM6NQPBeap1W9rf",
+    "spotifyEmbed": "https://open.spotify.com/embed/playlist/5cTvDz05adEOop9zYRiyBx?utm_source=generator&theme=0",
+    "instagramPost": "https://www.instagram.com/reel/DA53SjDI1sa/?utm_source=ig_embed&utm_campaign=loading",
+    "instagramCaption": "Een bericht gedeeld door Buurtkoor De Partiburen (@de_partiburen)"
+  },
+  "footer": {
+    "label": "Lid van",
+    "linkLabel": "Koor&Stem vzw",
+    "url": "https://www.koorenstem.be/nl"
+  }
+}
