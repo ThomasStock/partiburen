@@ -1,5 +1,6 @@
 ---
 import type { PostData } from "../lib/posts";
+import PostImages from "./PostImages.astro";
 interface Props { post: PostData }
 const { post } = Astro.props;
 ---
@@ -16,9 +17,7 @@ const { post } = Astro.props;
       </p>
     )}
   </div>
-  {post.image && (
-    <img src={post.image} alt={post.imageAlt ?? ""} class="w-full my-4 mb-8" />
-  )}
+  <PostImages images={post.images ?? []} title={post.title} />
   {post.video && (
     <div class="p-4">
       <iframe width="100%" class="aspect-video" src={post.video} title={`Video: ${post.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

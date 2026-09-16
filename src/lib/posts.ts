@@ -4,8 +4,7 @@ export interface PostData {
   published?: boolean;
   pinned?: boolean;
   order?: number | null;
-  image?: string | null;
-  imageAlt?: string | null;
+  images?: { src: string; alt?: string | null }[] | null;
   link?: { url?: string | null; label?: string | null } | null;
   video?: string | null;
 }

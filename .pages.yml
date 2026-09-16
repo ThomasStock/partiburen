@@ -52,13 +52,20 @@ content:
         default: 100
         description: Lagere getallen komen eerst, binnen de vastgepinde en overige
           berichten.
-      - name: image
-        label: Afbeelding
-        type: image
-        description: Optioneel. Wordt onder het bericht getoond.
-      - name: imageAlt
-        label: Beschrijving afbeelding
-        type: string
+      - name: images
+        label: Afbeeldingen
+        type: object
+        list: true
+        description: Optioneel. Voeg foto’s toe en sleep ze in de gewenste volgorde.
+          Meerdere foto’s vormen automatisch een carrousel.
+        fields:
+          - name: src
+            label: Afbeelding
+            type: image
+            required: true
+          - name: alt
+            label: Beschrijving afbeelding
+            type: string
       - name: link
         label: Lees meer (optioneel)
         type: object
