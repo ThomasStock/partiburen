@@ -39,11 +39,11 @@ Pages CMS beheert alleen bestanden in GitHub; er is geen CMS-server nodig op Ver
 - Maak, wijzig of verwijder berichten onder **Berichten**. Elk bericht heeft een titel en één rich-textveld.
 - **Vastpinnen** houdt een bericht bovenaan; **Volgorde** sorteert van laag naar hoog binnen vastgepinde en overige berichten. Bij gelijke volgorde sorteert de titel alfabetisch.
 - **Publiceren** uitzetten verbergt een bericht. Nieuwe berichten zijn standaard zichtbaar.
-- Een afbeelding, lees-meer-link en YouTube-video zijn optioneel. Zonder linktekst verschijnt “Lees meer”.
+- Een afbeelding en lees-meer-link zijn optioneel. Zonder linktekst verschijnt “Lees meer”.
 - “Wie zijn we?” is vastgepind; “Meezingen?” bevat de bestaande foto en contactgegevens.
 - Onder **Website-instellingen** kan de badge leeggemaakt worden om die te verbergen.
 - Afbeeldingen worden opgeslagen in `public/`; de publieke URL begint met `/`.
-- Gebruik voor YouTube en Spotify de insluit-URL (embed).
+- Sociale links, YouTube, Spotify, Instagram en de voettekst staan vast in de code.
 - Opslaan maakt een GitHub-commit. Op `main` start daarmee de bestaande
   Vercel-productiedeployment. Wijzigingen staan online zodra die geslaagd is.
 - Opslaan is dus publiceren: werk op een andere branch voor concepten.

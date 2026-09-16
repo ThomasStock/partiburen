@@ -5,7 +5,12 @@ import Post from "../components/Post.astro";
 import { visiblePosts, type PostData } from "../lib/posts";
 
 const hero: { title: string; badge?: string | null; badgeAlt?: string | null } = content.hero;
-const posts = visiblePosts(Object.values(import.meta.glob<PostData>("../data/posts/*.json", { eager: true, import: "default" })));
+// The existing choir video is part of the design, not an editable CMS field.
+const entries = import.meta.glob<PostData>("../data/posts/*.json", { eager: true, import: "default" });
+const posts = visiblePosts(Object.entries(entries).map(([path, post]) => ({
+  ...post,
+  video: path.endsWith("/wie-zijn-we.json") ? "https://www.youtube.com/embed/TwZbkf8TZT0?si=LaM6NQPBeap1W9rf" : undefined,
+})));
 ---
 
 <Layout>
@@ -20,14 +25,14 @@ const posts = visiblePosts(Object.values(import.meta.glob<PostData>("../data/pos
     {hero.badge && <img src={hero.badge} alt={hero.badgeAlt ?? ""} class="absolute md:bottom-4 md:right-4 bottom-1 right-1 w-24 md:w-32 h-auto" />}
   </header>
   <div class="p-4 mt-6 flex flex-row gap-12 justify-center items-center">
-    <a href={content.social.instagram} target="_blank" class="shrink-0"
+    <a href="https://www.instagram.com/de_partiburen" target="_blank" class="shrink-0"
       ><img
         src="/instagram.png"
         alt="Instagram"
         class="size-12"
       /></a
     >
-    <a href={content.social.facebook} target="_blank" class="shrink-0"
+    <a href="https://www.facebook.com/profile.php?id=100085963819719" target="_blank" class="shrink-0"
       ><img src="/facebook.png" alt="Facebook" class="size-12" /></a
     >
   </div>
@@ -38,7 +43,7 @@ const posts = visiblePosts(Object.values(import.meta.glob<PostData>("../data/pos
       <iframe
         style="border-radius:12px"
         class="h-[352px] sm:h-auto"
-        src={content.social.spotifyEmbed}
+        src="https://open.spotify.com/embed/playlist/5cTvDz05adEOop9zYRiyBx?utm_source=generator&theme=0"
         width="100%"
         allowfullscreen=""
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -47,13 +52,13 @@ const posts = visiblePosts(Object.values(import.meta.glob<PostData>("../data/pos
       <blockquote
         class="instagram-media"
         data-instgrm-captioned
-        data-instgrm-permalink={content.social.instagramPost}
+        data-instgrm-permalink="https://www.instagram.com/reel/DA53SjDI1sa/?utm_source=ig_embed&utm_campaign=loading"
         data-instgrm-version="14"
         style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:600px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"
       >
         <div style="padding:16px;">
           <a
-            href={content.social.instagramPost}
+            href="https://www.instagram.com/reel/DA53SjDI1sa/?utm_source=ig_embed&utm_campaign=loading"
             style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
             target="_blank"
           >
@@ -130,9 +135,9 @@ const posts = visiblePosts(Object.values(import.meta.glob<PostData>("../data/pos
             style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"
           >
             <a
-              href={content.social.instagramPost}
+              href="https://www.instagram.com/reel/DA53SjDI1sa/?utm_source=ig_embed&utm_campaign=loading"
               style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
-              target="_blank">{content.social.instagramCaption}</a
+              target="_blank">Een bericht gedeeld door Buurtkoor De Partiburen (@de_partiburen)</a
             >
           </p>
 
@@ -144,7 +149,7 @@ const posts = visiblePosts(Object.values(import.meta.glob<PostData>("../data/pos
 
 
     <div class="flex justify-center text-neutral-600 p-4 pb-8">
-      {content.footer.label}&nbsp;<a class="underline" href={content.footer.url}>{content.footer.linkLabel}</a>
+      Lid van&nbsp;<a class="underline" href="https://www.koorenstem.be/nl">Koor&amp;Stem vzw</a>
     </div>
   </main>
 </Layout>

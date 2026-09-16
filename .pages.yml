@@ -71,11 +71,6 @@ content:
             label: Linktekst
             type: string
             default: Lees meer
-      - name: video
-        label: YouTube embed-URL (optioneel)
-        type: string
-        description: Gebruik een https://www.youtube.com/embed/... URL. Laat leeg om
-          geen video te tonen.
   - name: home
     label: Website-instellingen
     type: file
@@ -122,44 +117,3 @@ content:
             label: Beschrijving badge
             type: string
             description: Optioneel. Laat de badge leeg om deze te verbergen.
-      - name: social
-        label: Sociale media
-        type: object
-        fields:
-          - name: instagram
-            label: Instagram-profiel
-            type: string
-            required: true
-          - name: facebook
-            label: Facebook-profiel
-            type: string
-            required: true
-          - name: spotifyEmbed
-            label: Spotify embed-URL
-            type: string
-            required: true
-            description: Gebruik de insluit-URL (embed), niet de gewone deel-link.
-          - name: instagramPost
-            label: Instagram-bericht URL
-            type: string
-            required: true
-          - name: instagramCaption
-            label: Instagram-bijschrift
-            type: string
-            required: true
-      - name: footer
-        label: Onderaan
-        type: object
-        fields:
-          - name: label
-            label: Tekst
-            type: string
-            required: true
-          - name: linkLabel
-            label: Linktekst
-            type: string
-            required: true
-          - name: url
-            label: Link
-            type: string
-            required: true
