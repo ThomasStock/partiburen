@@ -1,8 +1,10 @@
 ---
 import type { PostData } from "../lib/posts";
 import PostImages from "./PostImages.astro";
+import { youtubeEmbed } from "../lib/youtube";
 interface Props { post: PostData }
 const { post } = Astro.props;
+const video = youtubeEmbed(post.video);
 ---
 
 <article>
@@ -18,9 +20,9 @@ const { post } = Astro.props;
     )}
   </div>
   <PostImages images={post.images ?? []} title={post.title} />
-  {post.video && (
+  {video && (
     <div class="p-4">
-      <iframe width="100%" class="aspect-video" src={post.video} title={`Video: ${post.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="100%" class="aspect-video" src={video} title={`Video: ${post.title}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   )}
 </article>

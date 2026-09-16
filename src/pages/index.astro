@@ -5,12 +5,8 @@ import Post from "../components/Post.astro";
 import { visiblePosts, type PostData } from "../lib/posts";
 
 const hero: { title: string; badge?: string | null; badgeAlt?: string | null } = content.hero;
-// The existing choir video is part of the design, not an editable CMS field.
 const entries = import.meta.glob<PostData>("../data/posts/*.json", { eager: true, import: "default" });
-const posts = visiblePosts(Object.entries(entries).map(([path, post]) => ({
-  ...post,
-  video: path.endsWith("/wie-zijn-we.json") ? "https://www.youtube.com/embed/TwZbkf8TZT0?si=LaM6NQPBeap1W9rf" : undefined,
-})));
+const posts = visiblePosts(Object.values(entries));
 ---
 
 <Layout>

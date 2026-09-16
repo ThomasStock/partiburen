@@ -66,6 +66,10 @@ content:
           - name: alt
             label: Beschrijving afbeelding
             type: string
+      - name: video
+        label: YouTube-link (optioneel)
+        type: string
+        description: Plak een YouTube-link (watch, youtu.be, Shorts of embed). Laat leeg om geen video te tonen.
       - name: link
         label: Lees meer (optioneel)
         type: object
