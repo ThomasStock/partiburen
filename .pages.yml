@@ -4,8 +4,80 @@ media:
   categories:
     - image
 content:
+  - name: posts
+    label: Berichten
+    type: collection
+    path: src/data/posts
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
+      fields:
+        - title
+        - pinned
+        - order
+        - published
+      sort:
+        - order
+        - title
+        - pinned
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: title
+        label: Titel
+        type: string
+        required: true
+      - name: body
+        label: Inhoud
+        type: rich-text
+        required: true
+        options:
+          format: html
+          media: false
+      - name: published
+        label: Publiceren
+        type: boolean
+        default: true
+        description: "Uitgeschakeld: dit bericht verschijnt niet op de website."
+      - name: pinned
+        label: Vastpinnen
+        type: boolean
+        default: false
+        description: Vastgepinde berichten verschijnen boven alle andere berichten.
+      - name: order
+        label: Volgorde
+        type: number
+        default: 100
+        description: Lagere getallen komen eerst, binnen de vastgepinde en overige
+          berichten.
+      - name: image
+        label: Afbeelding
+        type: image
+        description: Optioneel. Wordt onder het bericht getoond.
+      - name: imageAlt
+        label: Beschrijving afbeelding
+        type: string
+      - name: link
+        label: Lees meer (optioneel)
+        type: object
+        fields:
+          - name: url
+            label: Link
+            type: string
+            description: Laat leeg om geen link te tonen.
+          - name: label
+            label: Linktekst
+            type: string
+            default: Lees meer
+      - name: video
+        label: YouTube embed-URL (optioneel)
+        type: string
+        description: Gebruik een https://www.youtube.com/embed/... URL. Laat leeg om
+          geen video te tonen.
   - name: home
-    label: Homepage
+    label: Website-instellingen
     type: file
     path: src/data/home.json
     format: json
@@ -45,76 +117,11 @@ content:
           - name: badge
             label: Badge
             type: image
-            required: true
+            description: Optioneel. Laat de badge leeg om deze te verbergen.
           - name: badgeAlt
             label: Beschrijving badge
             type: string
-            required: true
-      - name: about
-        label: Wie zijn we?
-        type: object
-        fields:
-          - name: title
-            label: Titel
-            type: string
-            required: true
-          - name: intro
-            label: Introductie
-            type: rich-text
-            required: true
-            options:
-              format: html
-              media: false
-          - name: conductors
-            label: Gastdirigenten
-            type: rich-text
-            required: true
-            options:
-              format: html
-              media: false
-          - name: moreLabel
-            label: Tekst lees-meer-link
-            type: string
-            required: true
-          - name: moreUrl
-            label: Lees-meer-link
-            type: string
-            required: true
-      - name: join
-        label: Meezingen
-        type: object
-        fields:
-          - name: title
-            label: Titel
-            type: string
-            required: true
-          - name: body
-            label: Tekst
-            type: rich-text
-            required: true
-            options:
-              format: html
-              media: false
-          - name: contactLabel
-            label: Contacttekst
-            type: string
-            required: true
-          - name: phoneLabel
-            label: Telefoonnummer (weergave)
-            type: string
-            required: true
-          - name: phone
-            label: Telefoonnummer (alleen cijfers, met landcode)
-            type: string
-            required: true
-          - name: image
-            label: Foto
-            type: image
-            required: true
-          - name: imageAlt
-            label: Beschrijving foto
-            type: string
-            required: true
+            description: Optioneel. Laat de badge leeg om deze te verbergen.
       - name: social
         label: Sociale media
         type: object
@@ -127,11 +134,6 @@ content:
             label: Facebook-profiel
             type: string
             required: true
-          - name: youtubeEmbed
-            label: YouTube embed-URL
-            type: string
-            required: true
-            description: Gebruik de insluit-URL (embed), niet de gewone deel-link.
           - name: spotifyEmbed
             label: Spotify embed-URL
             type: string

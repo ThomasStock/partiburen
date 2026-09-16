@@ -30,13 +30,18 @@ Pages CMS beheert alleen bestanden in GitHub; er is geen CMS-server nodig op Ver
 1. Open https://app.pagescms.org en meld aan met GitHub.
 2. Geef de Pages CMS GitHub-app toegang tot alleen `ThomasStock/partiburen`.
 3. Kies de repository en de branch `main` zodra deze configuratie daarop staat.
-4. Open **Homepage**. De velden zijn gegroepeerd en Nederlandstalig.
+4. Open **Berichten** voor inhoud of **Website-instellingen** voor de hoofdfoto, badge en algemene gegevens.
 5. Nodig andere redacteurs via e-mail uit via de collaborator-instellingen.
    Zij hebben geen GitHub-account nodig; dit is e-maillogin, geen Google-login.
 
 ### Wijzigen en publiceren
 
-- Bewerk teksten, afbeeldingen, links of zoekmachinegegevens onder **Homepage**.
+- Maak, wijzig of verwijder berichten onder **Berichten**. Elk bericht heeft een titel en één rich-textveld.
+- **Vastpinnen** houdt een bericht bovenaan; **Volgorde** sorteert van laag naar hoog binnen vastgepinde en overige berichten. Bij gelijke volgorde sorteert de titel alfabetisch.
+- **Publiceren** uitzetten verbergt een bericht. Nieuwe berichten zijn standaard zichtbaar.
+- Een afbeelding, lees-meer-link en YouTube-video zijn optioneel. Zonder linktekst verschijnt “Lees meer”.
+- “Wie zijn we?” is vastgepind; “Meezingen?” bevat de bestaande foto en contactgegevens.
+- Onder **Website-instellingen** kan de badge leeggemaakt worden om die te verbergen.
 - Afbeeldingen worden opgeslagen in `public/`; de publieke URL begint met `/`.
 - Gebruik voor YouTube en Spotify de insluit-URL (embed).
 - Opslaan maakt een GitHub-commit. Op `main` start daarmee de bestaande
@@ -52,7 +57,8 @@ npm run dev
 npm run build
 ```
 
-De inhoud staat in `src/data/home.json`; `.pages.yml` definieert het formulier.
+Berichten staan als aparte JSON-bestanden in `src/data/posts/`; algemene instellingen
+staan in `src/data/home.json`. `.pages.yml` definieert de formulieren.
 Astro leest die gegevens tijdens de build en schrijft volledige HTML naar `dist/`.
 Er worden geen CMS-gegevens in de browser opgehaald. Opmaak en lay-out blijven
 in de Astro-templates. De rich-textvelden bevatten HTML voor vertrouwde redacteurs.

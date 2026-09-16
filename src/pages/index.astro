@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import content from "../data/home.json";
+import Post from "../components/Post.astro";
+import { visiblePosts, type PostData } from "../lib/posts";
+
+const hero: { title: string; badge?: string | null; badgeAlt?: string | null } = content.hero;
+const posts = visiblePosts(Object.values(import.meta.glob<PostData>("../data/posts/*.json", { eager: true, import: "default" })));
 ---
 
 <Layout>
@@ -12,7 +17,7 @@ import content from "../data/home.json";
       </div>
     </div>
     <img src={content.hero.image} alt={content.hero.imageAlt} class="w-full" />
-    <img src={content.hero.badge} alt={content.hero.badgeAlt} class="absolute md:bottom-4 md:right-4 bottom-1 right-1 w-24 md:w-32 h-auto" />
+    {hero.badge && <img src={hero.badge} alt={hero.badgeAlt ?? ""} class="absolute md:bottom-4 md:right-4 bottom-1 right-1 w-24 md:w-32 h-auto" />}
   </header>
   <div class="p-4 mt-6 flex flex-row gap-12 justify-center items-center">
     <a href={content.social.instagram} target="_blank" class="shrink-0"
@@ -27,24 +32,7 @@ import content from "../data/home.json";
     >
   </div>
   <main>
-    <div class="p-4">
-      <h1 class="text-3xl leading-relaxed mb-2">{content.about.title}</h1>
-      <div class="cms-copy" set:html={content.about.intro} />
-      <div class="cms-copy mt-2" set:html={content.about.conductors} />
-      <p class="mt-2">
-        <a target="_blank" href={content.about.moreUrl} class="underline">{content.about.moreLabel}</a>
-      </p>
-    </div>
-    <div class="p-4 flex flex-col">
-      <div class="flex flex-col sm:items-stretch sm:flex-row gap-12 sm:gap-4">
-        <iframe width="100%" class="aspect-video" src={content.social.youtubeEmbed} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      
-      <h1 class="text-3xl leading-relaxed mb-2 mt-8">{content.join.title}</h1>
-      <div class="cms-copy" set:html={content.join.body} />
-      <p class="mt-2">{content.join.contactLabel} <a href={`tel:${content.join.phone}`}>{content.join.phoneLabel}</a></p>
-    </div>
-    <img src={content.join.image} alt={content.join.imageAlt} class="my-4 mb-8 self-center" />
+    {posts.map((post) => <Post post={post} />)}
 
     <div class="p-4 flex flex-col sm:items-stretch sm:flex-row gap-12 sm:gap-4">
       <iframe
@@ -160,10 +148,3 @@ import content from "../data/home.json";
     </div>
   </main>
 </Layout>
-
-<style is:global>
-  .cms-copy p + p { margin-top: 0.5rem; }
-  .cms-copy a { text-decoration: underline; }
-  .cms-copy ul { list-style: disc; padding-left: 1.5rem; }
-  .cms-copy ol { list-style: decimal; padding-left: 1.5rem; }
-</style>
