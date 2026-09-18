@@ -1,13 +1,16 @@
 {
   "title": "Meezingen?",
+  "body": "<p>Iedereen is welkom: je moet geen noten kunnen lezen. We zingen doorgaans muziek die de laatste 25 jaar te horen was op Radio 1 of op Studio Brussel, ondersteund door de cajon, wat kleine percussie en Pierre op gitaar. Voor klassieke popnummers zijn de strofes vaak 1-stemmig en de refreinen 2- of 3-stemmig.<br><br>Momenteel werken we met een wachtlijst voor dames. Mannen kunnen wel meteen aansluiten.</p><p>Voor meer informatie: <a href=\"tel:32497401843\">0497 40 18 43</a></p>",
   "published": true,
   "pinned": false,
   "order": 20,
-  "body": "<p>Iedereen is welkom: je moet geen noten kunnen lezen. We zingen doorgaans muziek die de laatste 25 jaar te horen was op Radio 1 of op Studio Brussel, ondersteund door de cajon, wat kleine percussie en Pierre op gitaar. Voor klassieke popnummers zijn de strofes vaak 1-stemmig en de refreinen 2- of 3-stemmig.</p><p>Voor meer informatie: <a href=\"tel:32497401843\">0497 40 18 43</a></p>",
   "images": [
     {
       "src": "/join.jpg",
       "alt": "Gezellig in het park"
     }
-  ]
+  ],
+  "link": {
+    "label": "Lees meer"
+  }
 }
