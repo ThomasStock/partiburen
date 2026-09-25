@@ -88,6 +88,25 @@ content:
     path: src/data/home.json
     format: json
     fields:
+      - name: instagram
+        label: Instagram
+        type: object
+        fields:
+          - name: mode
+            label: Wat tonen?
+            type: select
+            required: true
+            default: post
+            options:
+              values:
+                - name: profile
+                  label: Profiel tonen
+                - name: post
+                  label: Post tonen
+          - name: url
+            label: Instagram-link
+            type: string
+            description: Bij Post tonen plak je hier de link van een bericht of reel. Bij Profiel tonen verschijnt het profiel van De Partiburen en wordt deze link genegeerd.
       - name: seo
         label: Zoekmachines
         type: object

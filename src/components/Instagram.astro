@@ -1,0 +1,34 @@
+---
+import { instagramPostUrl } from "../lib/instagram.js";
+
+interface Props {
+  settings?: { mode?: string; url?: string | null };
+}
+const { settings } = Astro.props;
+const profile = settings?.mode === "profile";
+const url = profile ? "https://www.instagram.com/de_partiburen/" : instagramPostUrl(settings?.url);
+---
+
+<div class="w-full min-w-0" data-instagram>
+  {url ? (
+    <blockquote class="instagram-media" data-instgrm-permalink={url} data-instgrm-version="14" data-instgrm-captioned={!profile}>
+      <a href={url} target="_blank" rel="noopener noreferrer">{profile ? "Bekijk De Partiburen op Instagram" : "Dit bericht op Instagram bekijken"}</a>
+    </blockquote>
+  ) : (
+    <p data-instagram-fallback>
+      <a class="underline" href="https://www.instagram.com/de_partiburen/" target="_blank" rel="noopener noreferrer">
+        Bekijk De Partiburen op Instagram
+      </a>
+    </p>
+  )}
+</div>
+
+{url && <script is:inline async src="https://www.instagram.com/embed.js"></script>}
+
+<style>
+  [data-instagram] :global(.instagram-media) {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+</style>

@@ -43,7 +43,9 @@ Pages CMS beheert alleen bestanden in GitHub; er is geen CMS-server nodig op Ver
 - “Wie zijn we?” is vastgepind; “Meezingen?” bevat de bestaande foto en contactgegevens.
 - Onder **Website-instellingen** kan de badge leeggemaakt worden om die te verbergen.
 - Afbeeldingen worden opgeslagen in `public/`; de publieke URL begint met `/`.
-- Sociale links, Spotify, Instagram en de voettekst staan vast in de code.
+- Onder **Website-instellingen → Instagram** kies je **Profiel tonen** of **Post tonen**. De eerste optie toont het profiel van De Partiburen; de tweede toont het bericht (`/p/`) of de reel (`/reel/`) waarvan je de Instagram-link plakt. Bij profielweergave wordt de postlink genegeerd. Deelparameters worden automatisch verwijderd. Er zijn geen API-tokens of accountkoppeling nodig.
+- Bij een lege of ongeldige postlink verschijnt een link naar het Instagram-profiel. Het gekozen profiel of bericht moet openbaar zijn en embedding toestaan.
+- Sociale links, Spotify en de voettekst staan vast in de code.
 - Elk bericht heeft een optionele **YouTube-link**. Watch-, youtu.be-, Shorts-, live- en embed-links worden automatisch omgezet. Laat leeg om de video te verwijderen. Ongeldige links worden niet weergegeven.
 - Opslaan maakt een GitHub-commit. Op `main` start daarmee de bestaande
   Vercel-productiedeployment. Wijzigingen staan online zodra die geslaagd is.
